@@ -36,7 +36,7 @@ const LoginPage = () => {
             const token = response.data.token;
             const user_id = response.data.user_id;
             const role = response.data.role;
-            const data = { email, password, role, token }
+            const data = { user_id, role, token }
             dispatch({ type: "LOGIN", payload: data })
             setEmail('')
             setPassword('')

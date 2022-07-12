@@ -2,6 +2,37 @@
   text-align: center;
 }
 
+.main,
+.main * {
+  min-height: 200px;
+  padding: 15px;
+  font-size: large;
+  color: white;
+}
+
+.main {
+  border: 2px solid black;
+  background: gray;
+}
+
+.main section {
+  display: flex;
+  border: 2px solid red;
+  background: rgb(255, 117, 117);
+}
+
+.main article {
+  border: 2px solid green;
+  background: rgb(99, 255, 99);
+  width: 100%;
+}
+
+.main aside {
+  border: 2px solid brown;
+  background: rgb(129, 57, 57);
+  width: 400px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,6 +63,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
