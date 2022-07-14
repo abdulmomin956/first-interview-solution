@@ -6,7 +6,6 @@ const TablePage = () => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(10);
-    // const [currentPage, setPage] = useState(0);
     const [canPreviousPage, setCanPreviousPage] = useState(false);
     const [canNextPage, setCanNextPage] = useState(false);
     const [pageCount, setPageCount] = useState(0);
@@ -22,8 +21,9 @@ const TablePage = () => {
             .then(function (response) {
                 // handle success
                 console.log(response.data);
-                setPageCount(Math.ceil(response.data.num_pages))
+                setPageCount(response.data.num_pages)
                 setData(response.data.list)
+                setPage(response.data.page)
 
             })
             .catch(function (error) {
@@ -73,7 +73,7 @@ const TablePage = () => {
                 </tbody>
             </table>
             <div>
-                <span>Page {page} of {Math.ceil(pageCount)}</span>
+                <span>Page {page} of {pageCount}</span>
                 <select value={limit} onChange={(e) => { setLimit(Number(e.target.value)); }}>
                     {[5, 10, 20, 30, 40, 50].map((pageSize) => (
                         <option key={pageSize} value={pageSize}>
